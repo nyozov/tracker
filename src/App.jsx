@@ -20,7 +20,7 @@ function App() {
 
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 1500);
   };
 
   useEffect(() => {
@@ -36,7 +36,7 @@ function App() {
       />
 
       <Result locationData={locationData} loading={loading} />
-      <Map locationData={locationData}/>
+      <Map locationData={locationData} loading={loading}/>
     </div>
   );
 }

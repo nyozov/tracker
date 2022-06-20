@@ -1,21 +1,25 @@
-import { MapContainer, TileLayer, useMap, Marker } from "react-leaflet";
+import { MapContainer, TileLayer, useMap, Marker, ZoomControl } from "react-leaflet";
 import { useState, useEffect } from "react";
+import Loading from "./Loading";
 
-function Map({ locationData }) {
+function Map({ locationData, loading }) {
 
   function SetViewOnClick({ coords }) {
     const map = useMap();
     map.setView(coords, map.getZoom());
+   
   
     return null;
   }
 
   return (
     <>
-      {locationData.location && (
+    {loading && <Loading/>}
+      {locationData.location && !loading && (
         <MapContainer
-          zoom={14}
-          scrollWheelZoom={false}
+          zoom={16}
+          zoomControl={false}
+       
           center={[locationData.location.lat, locationData.location.lng]}
         >
           <TileLayer
@@ -23,8 +27,11 @@ function Map({ locationData }) {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
           <Marker
+          title='marker'
             position={[locationData.location.lat, locationData.location.lng]}
+          
           />
+          <ZoomControl position="bottomleft" />
           <SetViewOnClick
         coords={[
           locationData.location.lat, locationData.location.lng
