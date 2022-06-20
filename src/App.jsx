@@ -4,13 +4,11 @@ import IpInput from "./components/IpInput";
 import Result from "./components/Result";
 import Map from "./components/Map";
 import { ipGenerator } from "./ipGenerator";
-const api_key = process.env.REACT_APP_API_KEY;
 function App() {
   const [ipInput, setIpInput] = useState("");
   const [locationData, setLocationData] = useState({});
   const [loading, setLoading] = useState(false);
-  const [permission, setPermission] = useState(false);
-  const [randomIp, setRandomIp] = useState("");
+
   // window.navigator.permissions
   //   .query({ name: "geolocation" })
   //   .then(function (result) {
@@ -30,9 +28,6 @@ function App() {
       ipInput
         ? `http://ip-api.com/json/${ipInput}`
         : `http://ip-api.com/json/8.8.8.8`
-      // ipInput
-      //   ? `https://geo.ipify.org/api/v2/country,city?apiKey=${api_key}&ipAddress=${ipInput}`
-      //   : `https://geo.ipify.org/api/v2/country,city?apiKey=${api_key}&ipAddress=8.8.8.8`
     );
     console.log(response.data);
     setLocationData(response.data);
@@ -47,7 +42,7 @@ function App() {
   }, []);
 
 
-  const handleRandom = async () => {
+  const fetchRandom = async () => {
     setLoading(true)
     const ip = ipGenerator();
     
@@ -68,7 +63,7 @@ function App() {
       />
       <div className="w-screen flex justify-center items-center">
         <div
-          onClick={handleRandom}
+          onClick={fetchRandom}
           className="text-white font-medium bg-black p-2 hover:bg-gray-800 rounded-xl mt-2 shadow cursor-pointer"
         >
           Random Ip

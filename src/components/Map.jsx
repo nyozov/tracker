@@ -13,8 +13,14 @@ function Map({ locationData, loading }) {
   }
 
   return (
-    <>
-    {loading && <Loading/>}
+    <div className=''>
+    {loading && 
+    <div className='h-[300px]'>
+      <Loading />
+     
+
+      </div>
+      }
       {locationData.status === 'success' && !loading && (
         <MapContainer
           zoom={16}
@@ -39,7 +45,7 @@ function Map({ locationData, loading }) {
 />
         </MapContainer>
       )}
-    </>
+    </div>
   );
 }
 
