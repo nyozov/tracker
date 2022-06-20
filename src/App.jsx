@@ -6,13 +6,21 @@ const api_key = process.env.REACT_APP_API_KEY;
 function App() {
   const [ipInput, setIpInput] = useState("");
   const [locationData, setLocationData] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const fetchLocation = async () => {
+    setLoading(true)
     const response = await axios.get(
       `https://geo.ipify.org/api/v2/country?apiKey=${api_key}&ipAddress=${ipInput}`
     );
     console.log(response.data);
     setLocationData(response.data);
+    
+    
+    setTimeout(() => {
+      setLoading(false)
+      
+    }, 2000);
   };
 
   useEffect(()=>{
@@ -30,7 +38,7 @@ function App() {
       />
      
      
-     <Result locationData={locationData} />
+     <Result locationData={locationData} loading={loading}/>
   
     </div>
   );
