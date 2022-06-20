@@ -15,12 +15,12 @@ function Map({ locationData, loading }) {
   return (
     <>
     {loading && <Loading/>}
-      {locationData.location && !loading && (
+      {locationData.status === 'success' && !loading && (
         <MapContainer
           zoom={16}
           zoomControl={false}
        
-          center={[locationData.location.lat, locationData.location.lng]}
+          center={[locationData.lat, locationData.lon]}
         >
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -28,13 +28,13 @@ function Map({ locationData, loading }) {
           />
           <Marker
           title='marker'
-            position={[locationData.location.lat, locationData.location.lng]}
+            position={[locationData.lat, locationData.lon]}
           
           />
           <ZoomControl position="bottomleft" />
           <SetViewOnClick
         coords={[
-          locationData.location.lat, locationData.location.lng
+          locationData.lat, locationData.lon
         ]}
 />
         </MapContainer>
