@@ -69,3 +69,12 @@ code {
   }
 }
 
+
+.leaflet-container{
+  position:absolute;
+  z-index: -10;
+  left: 0;
+  top: 38vh;
+  height:62vh;
+  width:100vw;
+}

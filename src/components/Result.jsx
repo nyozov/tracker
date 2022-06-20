@@ -14,9 +14,9 @@ function Result({ locationData, loading }) {
             <p className="text-xs font-medium text-gray-400">IP ADDRESS</p>
             <p className="text-2xl font-medium">{locationData.ip}</p>
             <p className="text-xs font-medium text-gray-400 mt-6">LOCATION</p>
-            <p className="text-2xl font-medium">
+            <p className="text-2xl font-medium text-center">
               {locationData.location &&
-                `${locationData.location.country}, ${locationData.location.region}`}
+                `${locationData.location.city}, ${locationData.location.region} , ${locationData.location.country}`}
             </p>
 
             <p className="text-xs font-medium text-gray-400 mt-6">TIMEZONE</p>
