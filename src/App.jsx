@@ -9,19 +9,6 @@ function App() {
   const [locationData, setLocationData] = useState({});
   const [loading, setLoading] = useState(false);
 
-  // window.navigator.permissions
-  //   .query({ name: "geolocation" })
-  //   .then(function (result) {
-  //     if (result.state === "granted") {
-  //       setPermission(true);
-  //       console.log("worked");
-  //     } else if (result.state === "prompt") {
-  //       setPermission(false);
-  //       console.log("didnt work");
-  //     }
-  //     // Don't do anything if the permission was denied.
-  //   });
-
   const fetchLocation = async () => {
     setLoading(true);
     const response = await axios.get(
@@ -41,11 +28,10 @@ function App() {
     fetchLocation();
   }, []);
 
-
   const fetchRandom = async () => {
-    setLoading(true)
+    setLoading(true);
     const ip = ipGenerator();
-    
+
     const response = await axios.get(`http://ip-api.com/json/${ip}`);
     setLocationData(response.data);
 
@@ -64,7 +50,7 @@ function App() {
       <div className="w-screen flex justify-center items-center">
         <div
           onClick={fetchRandom}
-          className="text-white font-medium bg-black p-2 hover:bg-gray-800 rounded-xl mt-2 shadow cursor-pointer"
+          className="text-white font-medium bg-black p-2 px-6 hover:bg-gray-800 rounded-xl mt-2 shadow cursor-pointer"
         >
           Random Ip
         </div>

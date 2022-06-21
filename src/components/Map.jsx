@@ -15,7 +15,7 @@ function Map({ locationData, loading }) {
   return (
     <div className=''>
     {loading && 
-    <div className='h-[300px]'>
+    <div className='h-[255px]'>
       <Loading />
      
 
