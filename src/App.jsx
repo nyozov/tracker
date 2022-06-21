@@ -4,6 +4,7 @@ import IpInput from "./components/IpInput";
 import Result from "./components/Result";
 import Map from "./components/Map";
 import { ipGenerator } from "./ipGenerator";
+const api_key = process.env.REACT_APP_API_KEY
 function App() {
   const [ipInput, setIpInput] = useState("");
   const [locationData, setLocationData] = useState({});
@@ -13,8 +14,8 @@ function App() {
     setLoading(true);
     const response = await axios.get(
       ipInput
-        ? `http://ip-api.com/json/${ipInput}`
-        : `http://ip-api.com/json/8.8.8.8`
+        ? `https://ipgeolocation.abstractapi.com/v1/?api_key=${api_key}&ip_address=${ipInput}`
+        : `https://ipgeolocation.abstractapi.com/v1/?api_key=${api_key}&ip_address=8.8.8.8`
     );
     console.log(response.data);
     setLocationData(response.data);
@@ -32,7 +33,7 @@ function App() {
     setLoading(true);
     const ip = ipGenerator();
 
-    const response = await axios.get(`http://ip-api.com/json/${ip}`);
+    const response = await axios.get(`https://ipgeolocation.abstractapi.com/v1/?api_key=${api_key}&ip_address=${ip}`);
     setLocationData(response.data);
 
     setTimeout(() => {
