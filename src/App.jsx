@@ -50,7 +50,7 @@ function App() {
       <div className="w-screen flex justify-center items-center">
         <div
           onClick={fetchRandom}
-          className="text-white font-medium bg-black p-2 px-6 hover:bg-gray-800 rounded-xl mt-2 shadow cursor-pointer"
+          className="text-white font-medium bg-black p-2 px-6 hover:bg-gray-800 rounded-xl mt-2 lg:mt-8 shadow cursor-pointer"
         >
           Random Ip
         </div>

@@ -4,7 +4,7 @@ function Result({ locationData, loading }) {
   console.log("location", locationData);
   return (
     <div className="w-screen h-full flex justify-center items-center">
-      <div className="w-11/12 h-[250px] lg:h-[155px] mt-2 lg:mt-12 bg-white shadow-lg rounded-2xl">
+      <div className="w-11/12 h-[250px] lg:h-[155px] mt-2 lg:mt-8 bg-white shadow-lg rounded-2xl">
         <div className="flex p-4 lg:px-0 justify-center h-full items-center flex-col lg:flex-row lg:justify-evenly">
           {loading && <Loading />}
           {locationData.status === "success" && !loading && (
