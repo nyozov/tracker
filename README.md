@@ -22,7 +22,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com) 
+- Live Site URL: [https://iptrackertest.netlify.app/](https://iptrackertest.netlify.app/) 
 
 
 ### Built with
@@ -31,7 +31,7 @@ Users should be able to:
 - Tailwind CSS 
 - Mobile-first workflow 
 - [React Leaflet](https://react-leaflet.js.org/) - Leaflet JS library for interactive maps 
-- [IP API](https://ip-api.com/) - Geolocation IP API
+- [Abstract API](https://www.abstractapi.com/) - Geolocation IP API
 
 
 
